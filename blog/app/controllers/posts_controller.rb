@@ -65,4 +65,10 @@ class PostsController < ApplicationController
       render plain: "404 Not Found", status: 404
     end
 
+
+# This is a Test for Git
+
+
 end
+
+
