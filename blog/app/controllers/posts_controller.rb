@@ -66,7 +66,6 @@ class PostsController < ApplicationController
     end
 
 
-# This is a Test for Git
 
 
 end
