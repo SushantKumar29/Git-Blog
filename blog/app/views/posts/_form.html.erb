@@ -1,0 +1,33 @@
+<div class="section">
+	<%= form_for post do |f| %>
+
+	<% if post.errors.any? %>
+		<div id="error_explanation" class="alert" style="text-align: center; color: red;">
+			<h2><%= pluralize(post.errors.count, "error") %> Prohibited this post from being saved:</h2>
+
+			<ul>
+				<% post.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
+	<div class="field">
+		<div class="control">
+			
+			<%= f.label :title, class: 'label', wrapper: false %>
+			<%= f.text_field :title, class: 'input', wrapper: false %>
+		</div>
+	</div>
+	<div class="field">
+		<div class="control">
+			<%= f.label :content, class: 'label' %>
+			<%= f.cktext_area :content,class: 'textarea', wrapper: false  %>
+		</div>
+	</div>
+	
+	<%= f.submit :Save, class: "button is-primary" %>
+	<% end %>
+</div>

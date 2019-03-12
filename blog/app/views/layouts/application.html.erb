@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="font-family: times new roman; ">
+	<section class="hero is-primary is-small">
+		<div class="hero-head">
+			<nav class="navbar is-transparent">
+			  <div class="contailer">
+			  	<div class="navbar-brand">
+			  		<%= link_to 'Blog', root_path, class:"navbar-item" %>
+		  		</div>
+			  </div>
+
+			  <div id="navbarBasicExample" class="navbar-menu">
+			    <div class="navbar-start">
+			      
+
+			      <%= link_to "Create New Post", new_post_path, class:"navbar-item" %>
+
+			    </div>
+
+			    <div class="navbar-end">
+			      <div class="navbar-item">
+			        <div class="buttons">
+			        	<% if user_signed_in? %>
+			        		<div class="button is-danger">
+			        			<strong><%= link_to 'Logout', destroy_user_session_path, method: :delete %></strong>
+			        		</div>
+			        	<% else %>
+				          <div class="button is-warning">
+				            <strong><%= link_to 'Sign up', new_user_registration_path, class:"navbar-item" %></strong>
+				          </div>
+				          <div class="button is-info">
+				            <%= link_to 'Login', new_user_session_path, class:"navbar-item" %>
+				          </div>
+			          	<% end %>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+
+		<div class="hero-body">
+
+			<div class="container has-text-centered">
+
+				<h1 class="title">
+					<%= yield :page_title %>
+				</h1>
+				
+			</div>
+		</div>
+
+
+	</section>
+	
+	<!-- <div style="color: green; text-align: center;">
+		<% flash.each do |key, value| %>
+			<p><%= value %></p>
+		<% end %>	
+	</div> -->
+<div class="clear-fix"><br></div>
+	<section>
+		
+
+		<div class="clearfix"></div>
+		<div>
+			<p class="notice" style="color: green; margin-left: 40% ;"><%= notice %></p>
+	   		<p class="alert" style="color: red; margin-left: 40%;"><%= alert %></p>
+	   	</div>
+	   	<div>
+
+	   		<%= yield %>	
+	   	</div>
+	   	
+	</section>		
+
+</body>
+</html>
