@@ -21,7 +21,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['MAIL_HOST']}
   config.action_mailer.smtp_settings = {
     user_name:            'sushantkmr29@gmail.com',
-    password:             'mamata007',
+    password:             '',
     domain:               'railscasts.com',
     address:              'smtp.gmail.com',     
     port:                 587,
